@@ -1,0 +1,95 @@
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7c3aed;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6d28d9;
+}
+
+/* Animation for pulsing elements */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Custom glow effect */
+.glow {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
+}
+
+.glow-text {
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.7);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+    transition: all 0.3s ease;
+}
+
+/* Custom game card styling */
+.game-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Progress message styling */
+.progress-message {
+    border-left: 3px solid #8b5cf6;
+    padding-left: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-message:last-child {
+    margin-bottom: 0;
+}
+
+.progress-time {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-right: 0.5rem;
+}
+
+/* Modal entrance animation */
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    animation: modalEnter 0.3s ease-out forwards;
+}
+
+/* Input focus styling */
+input:focus, button:focus {
+    outline: none;
+    ring: 2px solid #8b5cf6;
+}

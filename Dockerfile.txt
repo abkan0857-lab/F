@@ -1,0 +1,22 @@
+# Dockerfile untuk backend Node.js (server)
+FROM node:18-alpine
+
+WORKDIR /usr/src/app
+
+# Install build deps if needed
+RUN apk add --no-cache bash git
+
+COPY package*.json ./
+RUN npm ci --production
+
+COPY . .
+
+# Buat folder uploads & public
+RUN mkdir -p /usr/src/app/uploads/users && chown -R node:node /usr/src/app/uploads
+
+ENV NODE_ENV=production
+EXPOSE 3000
+
+USER node
+
+CMD ["node", "server.js"]

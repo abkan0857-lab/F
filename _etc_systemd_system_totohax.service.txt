@@ -1,0 +1,16 @@
+[Unit]
+Description=TOTOHAX Backend
+After=network.target
+
+[Service]
+Type=simple
+User=node
+WorkingDirectory=/var/www/totohax
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+Environment=NODE_ENV=production
+Environment=MONGO_URI=mongodb://localhost:27017/expire-demo
+Environment=JWT_SECRET=replace_with_a_strong_secret
+
+[Install]
+WantedBy=multi-user.target

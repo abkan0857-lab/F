@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ""
+      MONGO_INITDB_ROOT_PASSWORD: ""
+
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      PORT: 3000
+      MONGO_URI: "mongodb://mongo:27017/expire-demo"
+      JWT_SECRET: "replace_with_a_strong_secret"
+      ENABLE_CRON: "true"
+      STORAGE_PROVIDER: "local"
+    volumes:
+      - ./uploads:/usr/src/app/uploads
+      - ./public:/usr/src/app/public
+    ports:
+      - "3000:3000"
+
+volumes:
+  mongo_data:

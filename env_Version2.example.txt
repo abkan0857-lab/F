@@ -1,0 +1,16 @@
+# .env.example - copy to .env and fill values
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/expire-demo
+JWT_SECRET=replace_with_a_strong_secret
+JWT_ACCESS_EXP=1h
+ENABLE_CRON=true
+CRON_TZ=UTC
+
+# Storage
+# STORAGE_PROVIDER = 'local' OR 's3'
+STORAGE_PROVIDER=local
+# If using S3:
+S3_BUCKET=your-bucket
+AWS_ACCESS_KEY_ID=yourkey
+AWS_SECRET_ACCESS_KEY=yoursecret
+AWS_REGION=your-region
